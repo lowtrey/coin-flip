@@ -5,9 +5,9 @@ class Coin extends React.Component {
         return (
             <div>
                 <h2>Let's flip a coin!</h2>
-                <img src='https://tinyurl.com/react-coin-heads-jpg' alt='' /><br />
-                <button>FLIP ME!</button>
-                <p>Out of 100 flips, there have been 50 heads and 50 tails.</p>
+                <img src={`https://tinyurl.com/react-coin-${this.props.side}-jpg`} alt='' /><br />
+                <button onClick={this.props.handleClick}>FLIP ME!</button>
+                <p>Out of {this.props.flipCount} flips, there have been 50 heads and 50 tails.</p>
             </div>
         )
     }
