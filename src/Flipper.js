@@ -16,13 +16,13 @@ class Flipper extends React.Component {
     handleClick() {
         let face = (Math.floor(Math.random() * 2) === 0) ? 'heads' : 'tails';
         this.setState((prevState) => {
-            if(face === 'heads') {
-                return {flipCount: prevState.flipCount + 1, side: face, headsCount: prevState.headsCount + 1};
-            } else {
-                return {flipCount: prevState.flipCount + 1, side: face, tailsCount: prevState.tailsCount + 1};
-            }
-          });
-        console.log(this.state.headsCount, this.state.tailsCount, face);
+            return {
+                side: face,
+                flipCount: prevState.flipCount + 1, 
+                headsCount: prevState.headsCount + (face === 'heads' ? 1 : 0),
+                tailsCount: prevState.tailsCount + (face === 'tails' ? 1 : 0)
+            };
+        });
     }
 
     render() {
